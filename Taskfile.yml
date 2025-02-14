@@ -1,0 +1,46 @@
+version: "3"
+
+tasks:
+  default:
+    desc: "Run clean and test tasks"
+    cmds:
+      - task: clean
+      - task: test
+
+  clean:
+    desc: "Clean the Go cache"
+    cmds:
+      - go clean -cache
+      - go clean -testcache
+
+  test:
+    desc: Run all tests and generate coverage report.
+    silent: false
+    cmds:
+      - task: clean
+      - go test -count=1 -timeout 30s ./... -coverprofile=coverage.out
+      - task: test/view-total-coverage
+
+  test/view-total-coverage:
+    desc: Display total test coverage from coverage.out
+    silent: true
+    internal: true
+    cmds:
+      - echo ""
+      - echo "Total Coverage:"
+      - go tool cover -func=coverage.out | grep total | awk -F '[[:space:]]+' '{print $NF}'
+
+  test/view-coverage:
+    desc: View the HTML coverage report.
+    internal: true
+    cmds:
+      - go tool cover -html=coverage.out
+      - echo "Coverage report displayed in your default browser."
+
+  test/coverage:
+    desc: Run go tests and use go tool cover.
+    silent: false
+    deps:
+      - test
+    cmds:
+      - task: test/view-coverage

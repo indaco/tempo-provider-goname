@@ -1,0 +1,4 @@
+github.com/indaco/tempo-api v0.0.0-20250213152646-efdd97302790 h1:W2QQPMotTNdVm7AjQfaE5Ejqb405C6vbf9nOcQJl3yY=
+github.com/indaco/tempo-api v0.0.0-20250213152646-efdd97302790/go.mod h1:azPpZNWz1z8bMZ9wZzfDilRpuj+mhzxsi6FSReO9x+o=
+github.com/indaco/tempo-provider-text v0.0.0-20250213171929-6ca17f67c598 h1:jhNdI1uAmcwqUE4gTrQhXairhrR39U7oZ/0hAjni23A=
+github.com/indaco/tempo-provider-text v0.0.0-20250213171929-6ca17f67c598/go.mod h1:p/2sV0TbvAueDAXVii5kKsErF7dDtA9XQoZsaoubASU=
